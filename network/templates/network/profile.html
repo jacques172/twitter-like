@@ -1,0 +1,49 @@
+{% extends "network/posts_layout.html" %}
+{% load static %}
+
+{% block details %}
+
+    <h2 style="color:rgb(32, 32, 81)">Profile</h2>
+
+    {% if message %}
+        <div>{{ message }}</div>
+    {% endif %}
+    <div id="result-message"></div>
+
+
+    <div class="container border border-secondary rounded-sm post-container">
+        <div class="row post-row">
+            <h3>{{ user.username }}</h3>
+        </div>
+        <div class="row post-row">
+           <i>Followers</i> : <b><span id="number_of_followers">{{ number_of_followers }}</span></b>
+        </div>
+        <div class="row post-row">
+            <i>Following</i> : <b>{{ number_of_users_followed }}</b>
+        </div>
+        <div class="row post-row">
+            {% if request.user.is_authenticated %}
+                {% if request.user.id != user.id %}
+                    {% if following %}
+                    <button><a data-userid="{{ user.id }}" id="follow-user" href="#">Unfollow user</a></button>
+                    {% else %}
+                        
+                        <button><a data-userid="{{ user.id }}" id="follow-user" href="#">Follow user</a></button>
+                        
+                    {% endif %}
+                {% endif %}
+            {% endif %}
+        </div>
+    </div>
+
+    <div>
+        <hr>
+    </div>
+
+{% endblock %}
+
+{% block script %}
+    <script src="{% static 'network/follow.js' %}"></script>
+    <script src="{% static 'network/like.js' %}"></script>
+    <script src="{% static 'network/edit.js' %}"></script>
+{% endblock %}

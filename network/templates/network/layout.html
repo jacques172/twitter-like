@@ -1,0 +1,61 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>{% block title %}Jwitter{% endblock %}</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link rel="icon" type="image/x-icon" href="https://img.favpng.com/3/3/16/social-media-computer-icons-favicon-scalable-vector-graphics-portable-network-graphics-png-favpng-3e48PZ7FAXZzNZbfV621RYu1E.jpg">
+        {% comment %} <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"> {% endcomment %}
+        {% comment %} <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> {% endcomment %}
+        
+        <link href="{% static 'network/styles.css' %}" rel="stylesheet">
+        {% block script %}
+        {% endblock %}
+        <script src="https://kit.fontawesome.com/4adde4af74.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div class = "all">
+        
+            <nav class="navbar navbar-expand-lg navbar navbar navbar-dark bg-dark" >
+                <a class="navbar-brand" href="{% url 'index' %}" style="color:blue"><b>Network</b></a>
+              
+                <div >
+                  <ul class="navbar-nav mr-auto">
+                    {% if request.user.is_authenticated %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'get_user' request.user.id %}""><strong>{{ request.user.username }}</strong></a>
+                        </li>
+                    {% endif %}
+                    <li class="nav-item">
+                      <b><a class="nav-link" href="{% url 'index' %}">All Posts</a></b>
+                    </li>
+                    {% if request.user.is_authenticated %}
+                        <li class="nav-item">
+                            <b><a class="nav-link" href="{% url 'post' %}">Post</a></b>
+                        </li>
+                        <li class="nav-item">
+                            <b><a class="nav-link" href="{% url 'following' %}">Following</a></b>
+                        </li>
+                        <li class="nav-item">
+                            <b><a class="nav-link" href="{% url 'logout' %}">Log Out</a></b>
+                        </li>
+                    {% else %}
+                        <li class="nav-item">
+                            <b><a class="nav-link" href="{% url 'login' %}">Log In</a></b>
+                        </li>
+                        <li class="nav-item">
+                            <b><a class="nav-link" href="{% url 'register' %}">Register</a></b>
+                        </li>
+                    {% endif %}
+                  </ul>
+                </div>
+              </nav>
+            
+            <div class="body">
+                {% block body %}
+                {% endblock body %}
+            </div>
+        </body>
+    </html>
+        </div>

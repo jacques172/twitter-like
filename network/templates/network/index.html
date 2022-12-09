@@ -1,0 +1,19 @@
+{% extends "network/posts_layout.html" %}
+{% load static %}
+
+{% block details %}
+
+    <center><h1 style = "color: rgb(14, 13, 13);">All Posts</h1></center>
+
+    {% if message %}
+        <div>{{ message }}</div>
+    {% endif %}
+    <div id="result-message"></div>
+
+
+{% endblock %}
+
+{% block script %}
+    <script src="{% static 'network/like.js' %}"></script>
+    <script src="{% static 'network/edit.js' %}"></script>
+{% endblock %}
