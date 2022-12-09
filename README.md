@@ -1,2 +1,2 @@
-# cs50-web-network
-A CS50-Web project: https://cs50.harvard.edu/web/2020/projects/4/network
+# Network
+Designed a Twitter-like social network website for making posts and following users with the ability of liking and unliking posts
