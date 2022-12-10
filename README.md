@@ -8,10 +8,8 @@ A Twitter-like social network website for making posts and following users with 
 `python manage.py runserver`
 
 
-![1](https://user-images.githubuserc![2](https://user-images.githubusercontent.com/96381612/206857038-7ec0971b-f79a-4909-8f07-4b270e4028ad.png)
-ontent.com/96381612/206857018-3238c828-4f43-4bdc-ba52-b5affc0d5480.png)
 
-
+![1](https://user-images.githubusercontent.com/96381612/206857087-8ec1b9ed-cd79-434f-9bd9-f3518d0dcc0b.png)
 
 
 
